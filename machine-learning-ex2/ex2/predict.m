@@ -16,8 +16,8 @@ p = zeros(m, 1);
 %
 
 
-
-
+prob = sigmoid(X' * theta)
+p = prob >= 0.5 % https://cn.mathworks.com/help/matlab/ref/gt.html
 
 
 

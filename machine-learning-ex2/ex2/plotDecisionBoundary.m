@@ -12,7 +12,7 @@ function plotDecisionBoundary(theta, X, y)
 plotData(X(:,2:3), y);
 hold on
 
-if size(X, 2) <= 3
+if size(X, 2) <= 3 % col size
     % Only need 2 points to define a line, so choose two endpoints
     plot_x = [min(X(:,2))-2,  max(X(:,2))+2];
 

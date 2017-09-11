@@ -43,9 +43,6 @@ h = sigmoid(X * theta);
 J = ((-y)' * log(h) - (1-y)'*log(1-h)) / m; % need dot product?
 
 grad = (X' * (h-y)) / m;
-
-
-
 % =============================================================
 
 grad = grad(:);

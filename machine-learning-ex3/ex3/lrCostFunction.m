@@ -47,6 +47,7 @@ grad = (X' * (h-y)) / m;
 % add regularization
 temp = theta; 
 temp(1) = 0;
+J = J + lambda / (2 * m) * sum(temp.^2);
 grad = grad + temp * lambda / m;
 
 % =============================================================

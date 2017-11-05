@@ -20,18 +20,23 @@ p = zeros(size(X, 1), 1);
 %       information see 'help max'. If your examples are in rows, then, you
 %       can use max(A, [], 2) to obtain the max for each row.
 %
+% Theta1 has size 25 x 401
+% Theta2 has size 10 x 26
+% X has size m x 401
+X = [ones(m, 1) X];
 
-z2 = Theta1 * X;
-a2 = zeros(z2 + 1, 1);
-a2(1, 1) = 1;
-a2(1, 2:end) = sigmoid(z2);
+z2 = Theta1 * X'; % 25 x m
+%z2 = Theta1 * X;
+%a2 = zeros(z2 + 1, 1);
+%a2(1, 1) = 1;
+a2 = sigmoid(z2);
+a2 = [ones(1,m);a2];  % 26 x m
 
 z3 = Theta2 * a2;
-a3 = zeros(z3 + 1, 1);
-a3(1, 1) = 1;
-a3(1, 2:end) = sigmoid(z3);
+a3 = sigmoid(z3);
 
-
+[c, index] = max(a3, [], 1);% return the index of the max element
+p = index';
 
 
 % =========================================================================

@@ -30,10 +30,10 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
+intermediate = X * all_theta';
 
-
-
-
+[c, index] = max(intermediate, [], 2);% return the index of the  max element
+p = index;
 
 
 % =========================================================================

@@ -38,11 +38,17 @@ grad = zeros(size(theta));
 
 
 
-
+% h and y, m by 1
+% X m * n
 h = sigmoid(X * theta);
 J = ((-y)' * log(h) - (1-y)'*log(1-h)) / m; % need dot product?
-
 grad = (X' * (h-y)) / m;
+
+% add regularization
+temp = theta; 
+temp(1) = 0;
+grad = grad + temp * lambda / m;
+
 % =============================================================
 
 grad = grad(:);
